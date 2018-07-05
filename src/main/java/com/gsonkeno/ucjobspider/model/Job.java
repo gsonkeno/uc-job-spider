@@ -6,8 +6,11 @@ import java.util.Date;
  * 发布职位实体
  */
 public class Job {
+    /**职位名称**/
     private String jobName;
+    /**发布者**/
     private String publisher;
+    /**发布时间**/
     private Date publishDate;
     /**工作地点**/
     private String jobPosition;
@@ -15,7 +18,11 @@ public class Job {
     private Integer jobYears;
     /**学历**/
     private String education;
+    /**爬虫时间**/
+    private Date crawlTime;
+    /**最低薪水**/
     private Integer minSalary;
+    /**最高薪水**/
     private Integer maxSalary;
 
     public String getJobName() {
@@ -80,5 +87,13 @@ public class Job {
 
     public void setMaxSalary(Integer maxSalary) {
         this.maxSalary = maxSalary;
+    }
+
+    public Date getCrawlTime() {
+        return crawlTime;
+    }
+
+    public void setCrawlTime(Date crawlTime) {
+        this.crawlTime = crawlTime;
     }
 }
