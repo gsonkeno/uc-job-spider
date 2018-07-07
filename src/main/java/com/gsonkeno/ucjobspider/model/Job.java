@@ -115,8 +115,8 @@ public class Job {
                 '}';
     }
     public String toCsvString(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-        SimpleDateFormat standardSdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat standardSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return  jobName + "," +
                 publisher + "," +
                 sdf.format(publishDate) + "," +

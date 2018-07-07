@@ -87,14 +87,15 @@ public class SpiderServiceImpl implements SpiderService {
 
     private void writeFile(List<Job> jobs){
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
-        File file = new File(sdf.format(date));
+        File file = new File(sdf.format(date) + ".csv");
         try {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
+            fw.write("职位名称,发布者,发布时间,工作地点,工作年限要求,学历,爬虫时间,薪水范围\n");
             for (Job job: jobs){
-                fw.write(job.toCsvString() + "\r\n");
+                fw.write(job.toCsvString() + "\n");
             }
             fw.close();
         } catch (IOException e) {
