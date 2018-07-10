@@ -72,7 +72,13 @@ public class SpiderServiceImpl implements SpiderService {
         Date publishDatePost = null;
         Date now = new Date();
         try {
-            publishDatePost = dateFormat.parse(publishDate);
+            if (publishDate.contains("昨天")){
+                Calendar c = Calendar.getInstance();
+                c.add(Calendar.DAY_OF_YEAR,-1);
+                publishDatePost = c.getTime();
+            }else {
+                publishDatePost = dateFormat.parse(publishDate);
+            }
             if (publishDatePost.compareTo(now)>0){
                 Calendar c = Calendar.getInstance();
                 c.setTime(publishDatePost);
@@ -80,6 +86,7 @@ public class SpiderServiceImpl implements SpiderService {
                 publishDatePost = c.getTime();
             }
         } catch (ParseException e) {
+            System.out.println(jobName);
             e.printStackTrace();
         }
         return new Job(jobName,publisher,publishDatePost,jobPosition,jobYears,education,now,salary);
