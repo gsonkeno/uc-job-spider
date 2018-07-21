@@ -1,5 +1,6 @@
 package com.gsonkeno.ucjobspider;
 
+import com.gsonkeno.ucjobspider.service.AnalysisService;
 import com.gsonkeno.ucjobspider.service.SpiderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,6 +13,8 @@ public class UcJobSpiderApplication implements ApplicationRunner {
 
     @Autowired
     private SpiderService service;
+    @Autowired
+    private AnalysisService analysisService;
 
     public static void main(String[] args) {
         SpringApplication.run(UcJobSpiderApplication.class, args);
@@ -20,5 +23,6 @@ public class UcJobSpiderApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         //service.spider();
+        analysisService.analysis();
     }
 }
