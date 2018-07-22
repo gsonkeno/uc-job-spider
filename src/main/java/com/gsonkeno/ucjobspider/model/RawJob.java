@@ -1,5 +1,6 @@
 package com.gsonkeno.ucjobspider.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RawJob {
@@ -100,5 +101,16 @@ public class RawJob {
     @Override
     public boolean equals(Object obj) {
         return this.toString().equals(obj.toString());
+    }
+
+    public String toCsvString(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return  jobName + "," +
+                publisher + "," +
+                sdf.format(publishDate) + "," +
+                jobPosition + "," +
+                jobYears + "," +
+                education + "," +
+                salary;
     }
 }

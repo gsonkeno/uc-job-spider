@@ -22,7 +22,7 @@ public class UcJobSpiderApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        //service.spider();
+        service.spider();
         analysisService.analysis();
     }
 }
