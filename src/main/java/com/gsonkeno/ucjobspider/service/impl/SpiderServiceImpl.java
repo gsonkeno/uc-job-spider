@@ -77,7 +77,12 @@ public class SpiderServiceImpl implements SpiderService {
                 c.add(Calendar.DAY_OF_YEAR,-1);
                 publishDatePost = c.getTime();
             }else {
-                publishDatePost = dateFormat.parse(publishDate);
+                //当2018年17:55时
+                if (publishDate.contains(":")){
+                    publishDatePost = new Date();
+                }else {
+                    publishDatePost = dateFormat.parse(publishDate);
+                }
             }
             if (publishDatePost.compareTo(now)>0){
                 Calendar c = Calendar.getInstance();
