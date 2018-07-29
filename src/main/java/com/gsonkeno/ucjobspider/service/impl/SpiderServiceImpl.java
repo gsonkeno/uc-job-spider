@@ -101,7 +101,7 @@ public class SpiderServiceImpl implements SpiderService {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
-        File file = new File(sdf.format(date) + ".csv");
+        File file = new File("day_result/" + sdf.format(date) + ".csv");
         try {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);

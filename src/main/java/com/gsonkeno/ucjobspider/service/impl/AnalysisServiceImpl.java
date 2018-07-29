@@ -19,7 +19,6 @@ public class AnalysisServiceImpl implements AnalysisService {
         URL resource = getClass().getResource("/");
         System.out.println(resource);
 
-        File file = new File("");
         try {
             File jobChangeFile = new File("jobChange.md");
             if (!jobChangeFile.exists()){
@@ -27,8 +26,7 @@ public class AnalysisServiceImpl implements AnalysisService {
             }
             String lastFileName = getLastChangeEndFileName(jobChangeFile);
 
-            String rootPath = file.getCanonicalPath();
-            File rootDirectory = new File(rootPath);
+            File rootDirectory = new File("day_result");
             File[] files = rootDirectory.listFiles((dir, name) -> {
                 return (lastFileName == null ?  name.endsWith("csv")
                         :name.endsWith("csv")&&name.compareTo(lastFileName)>=0);
